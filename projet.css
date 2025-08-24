@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+:root {
+    --color-primaire: #b40909;
+    --color-secondaire: #fefffe;
+    --color-terciere: #292827;
+    --color-texte: #292827;
+    --color-backgroud: #fefffe;
+    --color-button: #b40909;
+    /* Taille texte */
+    --tres-gros-titre: 128px;
+    --gros-titre: 64px;
+    --moyen-titre: 40px;
+    --titre: 32px;
+    --sous-titre: 24px;
+    --texte: 18px;
+    --style-titre: "Playfair Display", serif;
+    --style-texte: "Libre Franklin", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100vh;
+}
+
+.page {
+    margin-left: 64px;
+    margin-right: 64px;
+    margin-top: 8px;
+}
+/* TITRE */
+.titre {
+    font-family: var(--style-titre);
+    font-size: var(--gros-titre);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 400;
+    color: var(--color-texte);
+}
+
+.sousTitre {
+    display: flex;
+    align-items: center; /* Aligne l'icône et le texte verticalement */
+    text-transform: uppercase;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: var(--color-primaire);
+    scroll-margin-top: 65px;
+    font-size: var(--texte);
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+/*FIN TITRE */
+
+/* IMAGE */
+.imgProjet {
+    border-radius: 32px;
+    width: 350px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    float: right;
+}
+/* FIN IMAGE */
+
+/* TEXTE */
+.text {
+    font-family: var(--style-texte);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-texte);
+    font-size: var(--texte);
+    flex-wrap: wrap;
+    letter-spacing: 0.75px;
+}
+/* FIN TEXTE */
+
+/* BOUTTON */
+.buttonAccueil,
+.github {
+    position: relative;
+    padding: 1rem 1rem;
+    border-radius: 8px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background-color: var(--color-button);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100px;
+}
+/* FIN BOUTTON */
+
+.accueil {
+    text-decoration: none;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: justify;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.icon {
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    vertical-align: middle;
+    filter: invert(100%) brightness(200%);
+}
+.document {
+    background-color: var(--color-primaire);
+    width: fit-content;
+    padding: 12px;
+    border-radius: 16px;
+    margin-top: 32px;
+}
+.lienDocument {
+    color: var(--color-secondaire);
+    font-family: var(--style-texte);
+    font-size: var(--texte);
+    text-decoration: none;
+}
+/* TABLEAU DES NOTES */
+.tableauNote {
+    border-collapse: collapse;
+    margin-left: 16px;
+    margin-top: 32px;
+    border: 2px solid var(--color-primaire);
+}
+.tableauTitre {
+    padding: 8px;
+    background-color: var(--color-primaire);
+    color: var(--color-backgroud);
+    text-align: left;
+}
+.tableauValeur {
+    padding: 8px;
+    text-align: center;
+    background-color: var(--color-backgroud);
+    color: var(--color-texte);
+    border: 2px solid var(--color-primaire);
+}
+/* FIN TABLEAU DES NOTES */
+
+.footer {
+    margin-top: 32px;
+    justify-content: center;
+    display: flex;
+}
