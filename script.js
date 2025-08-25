@@ -10,7 +10,8 @@ window.addEventListener(
         if (window.location.hash.startsWith("#box")) return;
 
         const rect = scrollContainer.getBoundingClientRect();
-        const inZone = rect.top <= 0 && rect.bottom > window.innerHeight;
+        const tolerance = 25; // marge ajustable
+        const inZone = rect.top <= tolerance && rect.bottom > window.innerHeight - tolerance;
         if (!inZone) return;
 
         const down = e.deltaY > 0;
@@ -38,7 +39,8 @@ function getCarWidth() {
 
 function updateCar() {
     const rect = scrollContainer.getBoundingClientRect();
-    const inZone = rect.top <= 0 && rect.bottom > window.innerHeight;
+    const tolerance = 25;
+    const inZone = rect.top <= tolerance && rect.bottom > window.innerHeight - tolerance;
 
     // 🚫 Si une box est ouverte → on cache la voiture
     if (window.location.hash.startsWith("#box")) {
