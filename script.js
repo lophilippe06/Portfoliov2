@@ -2,15 +2,15 @@ const scrollContainer = document.querySelector(".scrollHorizontal");
 const scrollSpeed = 2;
 const accordions = document.querySelectorAll(".titreSousComp");
 
-// Scroll horizontal avec molette, bloqué aux extrémités
+// Scroll horizontal avec molette
 window.addEventListener(
     "wheel",
     (e) => {
-        // 🚫 Si une box est ouverte → on ne scrolle pas l’horizontal
+        // Si une box est ouverte → pas de scroll
         if (window.location.hash.startsWith("#box")) return;
 
         const rect = scrollContainer.getBoundingClientRect();
-        const tolerance = 25; // marge ajustable
+        const tolerance = 25; // marge en pixel
         const inZone = rect.top <= tolerance && rect.bottom > window.innerHeight - tolerance;
         if (!inZone) return;
 
@@ -32,7 +32,6 @@ const carWrapper = document.querySelector(".car-wrapper");
 const carImg = document.querySelector(".car");
 
 function getCarWidth() {
-    // largeur réellement rendue (tient compte de la réduction)
     const w = carImg.getBoundingClientRect().width;
     return w > 0 ? w : carImg.naturalWidth || 0;
 }
@@ -42,7 +41,7 @@ function updateCar() {
     const tolerance = 25;
     const inZone = rect.top <= tolerance && rect.bottom > window.innerHeight - tolerance;
 
-    // 🚫 Si une box est ouverte → on cache la voiture
+    // Si une box est ouverte, on cache la voiture
     if (window.location.hash.startsWith("#box")) {
         carWrapper.classList.add("hidden");
         return;
@@ -65,14 +64,12 @@ function updateCar() {
     carWrapper.style.transform = `translateX(${x}px)`;
 }
 
-// événements
 scrollContainer.addEventListener("scroll", updateCar);
 window.addEventListener("scroll", updateCar);
 window.addEventListener("resize", updateCar);
 if (carImg.complete) updateCar();
 else carImg.addEventListener("load", updateCar);
 
-// ----- Accordéons -----
 accordions.forEach((accordion) => {
     accordion.addEventListener("click", () => {
         const panel = accordion.nextElementSibling;
@@ -101,10 +98,11 @@ window.addEventListener("hashchange", () => {
     if (!isBox) updateCar(); // recalcul dès qu'on quitte une box
 });
 
-// Au chargement initial (ex: retour navigateur sur une box)
+// Chargement initial 
 document.addEventListener("DOMContentLoaded", () => {
     const isBox = window.location.hash.startsWith("#box");
     document.body.style.overflow = isBox ? "hidden" : "";
     carWrapper.classList.toggle("hidden", isBox);
     updateCar();
 });
+
